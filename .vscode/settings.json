@@ -26,5 +26,15 @@
     "python.formatting.provider": "yapf",
     "[json]": {
 	    "editor.formatOnSave": false
-    }
+
+    },
+    "search.exclude": {
+        "**/.git": true,
+        "**/doc": true,
+        "**/bin": true,
+        "**/util": true,
+        "**/keyboards": false,
+        "**/layouts": true,
+        "**/users": true,
+     },
 }
