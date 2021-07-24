@@ -15,6 +15,7 @@
  */
 
 #include "quantum.h"
+#include "magic.h"
 
 #ifdef BLUETOOTH_ENABLE
 #    include "outputselect.h"
@@ -233,7 +234,7 @@ bool process_record_quantum(keyrecord_t *record) {
 #ifdef AUDIO_ENABLE
             process_audio(keycode, record) &&
 #endif
-#ifdef BACKLIGHT_ENABLE
+#if defined(BACKLIGHT_ENABLE) || defined(LED_MATRIX_ENABLE)
             process_backlight(keycode, record) &&
 #endif
 #ifdef STENO_ENABLE
@@ -318,6 +319,17 @@ bool process_record_quantum(keyrecord_t *record) {
                 set_output(OUTPUT_BLUETOOTH);
                 return false;
 #endif
+#ifndef NO_ACTION_ONESHOT
+            case ONESHOT_TOGGLE:
+                oneshot_toggle();
+                break;
+            case ONESHOT_ENABLE:
+                oneshot_enable();
+                break;
+            case ONESHOT_DISABLE:
+                oneshot_disable();
+                break;
+#endif
         }
     }
 
@@ -369,25 +381,19 @@ void tap_random_base64(void) {
 }
 
 void matrix_init_quantum() {
-#ifdef BOOTMAGIC_LITE
-    bootmagic_lite();
-#endif
-    if (!eeconfig_is_enabled()) {
-        eeconfig_init();
-    }
+    magic();
 #if defined(LED_NUM_LOCK_PIN) || defined(LED_CAPS_LOCK_PIN) || defined(LED_SCROLL_LOCK_PIN) || defined(LED_COMPOSE_PIN) || defined(LED_KANA_PIN)
     // TODO: remove calls to led_init_ports from keyboards and remove ifdef
     led_init_ports();
 #endif
 #ifdef BACKLIGHT_ENABLE
-#    ifdef LED_MATRIX_ENABLE
-    led_matrix_init();
-#    else
     backlight_init_ports();
-#    endif
 #endif
 #ifdef AUDIO_ENABLE
     audio_init();
+#endif
+#ifdef LED_MATRIX_ENABLE
+    led_matrix_init();
 #endif
 #ifdef RGB_MATRIX_ENABLE
     rgb_matrix_init();
