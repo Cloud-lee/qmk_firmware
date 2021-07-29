@@ -167,7 +167,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define DRIVER_LED_TOTAL (DRIVER_1_LED_TOTAL + DRIVER_2_LED_TOTAL)
 
 
-#if 0
+#if 1
 #define DISABLE_RGB_MATRIX_ALPHAS_MODS
 #define DISABLE_RGB_MATRIX_GRADIENT_UP_DOWN
 #define DISABLE_RGB_MATRIX_BREATHING
@@ -184,7 +184,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DISABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS
 #define DISABLE_RGB_MATRIX_TYPING_HEATMAP
 #define DISABLE_RGB_MATRIX_DIGITAL_RAIN
-#if 0
+#if 1
 #define DISABLE_RGB_MATRIX_SOLID_REACTIVE
 #define DISABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE
 #define DISABLE_RGB_MATRIX_SOLID_REACTIVE_WIDE
@@ -205,8 +205,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGB_MATRIX_LED_FLUSH_LIMIT 10
 #define RGB_DISABLE_WHEN_USB_SUSPENDED true
 
+//#undef STM32_EEPROM_ENABLE
 #ifdef EEPROM_DRIVER
-#define EXTERNAL_EEPROM_I2C_BASE_ADDRESS  0b10100010
+//#error "asdasds"
+#define EXTERNAL_EEPROM_I2C_BASE_ADDRESS  0b10101000
 #define EEPROM_I2C_24LC256
 #endif
 
