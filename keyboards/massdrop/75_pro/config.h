@@ -201,10 +201,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGB_DISABLE_WHEN_USB_SUSPENDED true
 
 #ifdef EEPROM_DRIVER
-#define EXTERNAL_EEPROM_I2C_BASE_ADDRESS  0b10100010
+#define EXTERNAL_EEPROM_I2C_BASE_ADDRESS  0b10101000
 #define EEPROM_I2C_24LC256
 #endif
-
 
 /* Bootmagic Lite key configuration */
 //#define BOOTMAGIC_LITE_ROW 0

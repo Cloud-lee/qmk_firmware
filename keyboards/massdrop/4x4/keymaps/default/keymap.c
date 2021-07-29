@@ -25,6 +25,7 @@ enum layer_names {
 enum custom_keycodes {
     QMKURL = SAFE_RANGE,
     MD_BOOT,    //Restart into bootloader after hold timeout
+    QMKURL,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -40,9 +41,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         MD_BOOT, EEP_RST,  RGB_TOG, XXXXXXX,
         RGB_MOD, RGB_HUI,  RGB_SAI, RGB_VAI,
         RGB_RMOD,RGB_HUD,  RGB_SAD, RGB_VAD,
-        XXXXXXX, XXXXXXX,  DEBUG,   KC_TRNS
+        QMKURL,  XXXXXXX,  DEBUG,   KC_TRNS
     )
 };
+
+#if 0
+void rgb_matrix_indicators_user(void) {
+    //rgb_matrix_set_color(0, 100, 100, 0);
+}
+#endif
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     static uint32_t key_timer;
@@ -52,7 +59,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (record->event.pressed) {
                 // when keycode QMKURL is pressed
                 //SEND_STRING("https://qmk.fm/\n");
-
+                rgb_matrix_set_color(0, 100, 100, 0);
             } else {
                 // when keycode QMKURL is released
             }
