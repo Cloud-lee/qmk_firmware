@@ -46,3 +46,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
     )
 };
+
+#ifdef ENCODER_ENABLE
+bool encoder_update_user(uint8_t index, bool clockwise) {
+    if (index == 0) { /* First encoder */
+        if (IS_LAYER_ON(0)) {
+            if (clockwise) {
+                //tap_code(KC_VOLU);
+                tap_code(KC_AUDIO_VOL_UP);
+            } else {
+                //tap_code(KC_VOLD);
+                tap_code(KC_AUDIO_VOL_DOWN);
+            }
+        } else if (IS_LAYER_ON(1)){
+            if (clockwise) {
+                rgblight_increase_val();
+            } else {
+                rgblight_decrease_val();
+            }
+        }
+    }
+    return true;
+}
+#endif

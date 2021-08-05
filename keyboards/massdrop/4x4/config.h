@@ -27,6 +27,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define PRODUCT_ID      0x016B //BM16a
 #define VENDOR_ID    0x0483  //4x4
 #define PRODUCT_ID   0xEED7  //4x4
+//#define VENDOR_ID    0x320F  //GMMK pro
+//#define PRODUCT_ID   0x5044  //GMMK pro
 #define DEVICE_VER   0x0001
 #define MANUFACTURER "Drop Inc."
 #define PRODUCT      "4x4 keyboard"
@@ -37,10 +39,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_ROW_PINS { D1, D3, D5, D7 }
 #define MATRIX_COL_PINS { D0, D2, D4, D6 }
 
+/* Rotary Encoder */
+#define ENCODERS_PAD_A { A5 }
+#define ENCODERS_PAD_B { A6 }
+
 #define UNUSED_PINS
 
 /* COL2ROW, ROW2COL */
 #define DIODE_DIRECTION COL2ROW
+
+/* Suspended State */
+#define LED_DISABLE_WHEN_USB_SUSPENDED true
 
 /* the delay in microseconds when between changing matrix pin state and reading values */
 //#define MATRIX_IO_DELAY 30
@@ -167,7 +176,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define DRIVER_LED_TOTAL (DRIVER_1_LED_TOTAL + DRIVER_2_LED_TOTAL)
 
 
-#if 1
+#if 0
 #define DISABLE_RGB_MATRIX_ALPHAS_MODS
 #define DISABLE_RGB_MATRIX_GRADIENT_UP_DOWN
 #define DISABLE_RGB_MATRIX_BREATHING
@@ -184,7 +193,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DISABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS
 #define DISABLE_RGB_MATRIX_TYPING_HEATMAP
 #define DISABLE_RGB_MATRIX_DIGITAL_RAIN
-#if 1
+#if 0
 #define DISABLE_RGB_MATRIX_SOLID_REACTIVE
 #define DISABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE
 #define DISABLE_RGB_MATRIX_SOLID_REACTIVE_WIDE
@@ -205,7 +214,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGB_MATRIX_LED_FLUSH_LIMIT 10
 #define RGB_DISABLE_WHEN_USB_SUSPENDED true
 
-//#undef STM32_EEPROM_ENABLE
+
 #ifdef EEPROM_DRIVER
 //#error "asdasds"
 #define EXTERNAL_EEPROM_I2C_BASE_ADDRESS  0b10101000
