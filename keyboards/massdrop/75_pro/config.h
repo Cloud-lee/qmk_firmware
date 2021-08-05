@@ -35,6 +35,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_ROW_PINS { B15, B14, B13, B12, B11, B10 }
 #define MATRIX_COL_PINS { C15, C14, C13, C12, C11, C10, C9, C8, C7, C6, C5, C4, C3, C2, C1}
 
+/* Rotary Encoder */
+#define ENCODERS_PAD_A { A5 }
+#define ENCODERS_PAD_B { A6 }
+
 #define UNUSED_PINS
 
 /* COL2ROW, ROW2COL */
@@ -135,6 +139,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define BOOTMAGIC_LITE_ROW 0
 //#define BOOTMAGIC_LITE_COLUMN 0
 
+/* Suspended State */
+#define LED_DISABLE_WHEN_USB_SUSPENDED true
 
 /* I2C bus test */
 #if 1

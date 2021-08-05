@@ -51,3 +51,46 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
 };
+
+
+#ifdef ENCODER_ENABLE
+bool encoder_update_user(uint8_t index, bool clockwise) {
+    if (index == 0) { /* First encoder */
+        if (IS_LAYER_ON(0)) {
+            if (clockwise) {
+                //tap_code(KC_VOLU);
+                rgblight_increase_val();
+                //led_matrix_mode(RGB_MATRIX_BREATHING);
+            } else {
+                //tap_code(KC_VOLD);
+                rgblight_decrease_val();
+            }
+            dprintf("mode = %d\n", rgb_matrix_get_mode());
+            dprintf("hue = %d\n", rgb_matrix_get_hue());
+            dprintf("sat = %d\n", rgb_matrix_get_sat());
+            dprintf("val = %d\n", rgb_matrix_get_val());
+        }
+    }
+    return true;
+}
+#endif
+
+#if 1
+void matrix_init_user(void) {
+    debug_enable = true;
+    rgblight_enable();
+    //rgblight_mode(1);
+    rgblight_mode(RGB_MATRIX_BREATHING);
+    rgblight_sethsv(255,0,255);
+    //rgblight_mode(6);
+    //eeconfig_disable();
+}
+#endif
+
+
+void rgb_matrix_indicators_kb(void) {
+    //rgb_matrix_set_color(0, 50,50,50);
+    //rgb_matrix_set_color(1, 50,50,50);
+    //rgb_matrix_set_color(2, 50,50,50);
+    //rgb_matrix_set_color_all(200, 200, 200);
+}
