@@ -92,7 +92,7 @@ void matrix_init_user(void) {
 
 
 void rgb_matrix_indicators_kb(void) {
-    //rgb_matrix_set_color(0, 50,50,50);
+    //rgb_matrix_set_color(0, 50,50,50); // fot github token test
     //rgb_matrix_set_color(1, 50,50,50);
     //rgb_matrix_set_color(2, 50,50,50);
     //rgb_matrix_set_color_all(200, 200, 200);
