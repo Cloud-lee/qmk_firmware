@@ -53,16 +53,16 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
         if (IS_LAYER_ON(0)) {
             if (clockwise) {
                 //tap_code(KC_VOLU);
-                tap_code(KC_AUDIO_VOL_UP);
+                rgblight_decrease_val();
             } else {
                 //tap_code(KC_VOLD);
-                tap_code(KC_AUDIO_VOL_DOWN);
+                rgblight_increase_val();
             }
         } else if (IS_LAYER_ON(1)){
             if (clockwise) {
-                rgblight_increase_val();
+                //rgblight_increase_val();
             } else {
-                rgblight_decrease_val();
+                //rgblight_decrease_val();
             }
         }
     }
