@@ -170,7 +170,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DRIVER_ADDR_2 DRIVER_ADDR_1
 
 #define DRIVER_COUNT 2
-#define DRIVER_1_LED_TOTAL (16+6)
+//#define DRIVER_1_LED_TOTAL (16+6)
+#define DRIVER_1_LED_TOTAL (20)
 #define DRIVER_LED_TOTAL (DRIVER_1_LED_TOTAL)
 //#define DRIVER_2_LED_TOTAL 3
 //#define DRIVER_LED_TOTAL (DRIVER_1_LED_TOTAL + DRIVER_2_LED_TOTAL)

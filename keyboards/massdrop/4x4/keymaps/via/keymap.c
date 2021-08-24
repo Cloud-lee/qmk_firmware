@@ -53,19 +53,32 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
         if (IS_LAYER_ON(0)) {
             if (clockwise) {
                 //tap_code(KC_VOLU);
-                rgblight_decrease_val();
+                rgblight_increase_val();
+                //led_matrix_mode(RGB_MATRIX_BREATHING);
             } else {
                 //tap_code(KC_VOLD);
-                rgblight_increase_val();
+                rgblight_decrease_val();
             }
-        } else if (IS_LAYER_ON(1)){
-            if (clockwise) {
-                //rgblight_increase_val();
-            } else {
-                //rgblight_decrease_val();
-            }
+#if 1
+            dprintf("mode = %d\n", rgb_matrix_get_mode());
+            dprintf("hue = %d\n", rgb_matrix_get_hue());
+            dprintf("sat = %d\n", rgb_matrix_get_sat());
+            dprintf("val = %d\n", rgb_matrix_get_val());
+            dprintf("speed = %d\n", rgb_matrix_get_speed());
+#endif
         }
     }
     return true;
+}
+#endif
+
+#if 1
+void matrix_init_user(void) {
+    debug_enable = true; // for dprintf() enable or not
+    rgblight_enable();
+    rgblight_mode(RGB_MATRIX_BREATHING);
+    rgblight_sethsv(255,0,255);
+    rgblight_set_speed(50);
+    //eeconfig_disable();
 }
 #endif

@@ -25,7 +25,6 @@ enum layer_names {
 enum custom_keycodes {
     QMKURL = SAFE_RANGE,
     MD_BOOT,    //Restart into bootloader after hold timeout
-    QMKURL,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
