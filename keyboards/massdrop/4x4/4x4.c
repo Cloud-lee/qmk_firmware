@@ -66,7 +66,7 @@ led_config_t g_led_config = { {
   { 0,  43 },  { 56,  43 }, { 112,  43 }, { 168,  43 },
   { 0,  64 },  { 56,  64 }, { 112,  64 }, { 168,  64 },
 
-  ///underglow
+  // underglow
   { 224,  0 },  { 224,  21 }, { 224,  43 }, { 224,  64 },
 }, {
   // LED Index to Flag
@@ -75,7 +75,7 @@ led_config_t g_led_config = { {
   4,4,4,4,
   4,4,4,4,
 
-  //underglow
+  // underglow
   2,2,2,2,
 } };
 
