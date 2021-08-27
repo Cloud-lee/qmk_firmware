@@ -54,7 +54,7 @@ const is31_led g_is31_leds[DRIVER_LED_TOTAL] = {
     {0, E_12,   D_12,   F_12}, // F10
     {0, E_13,   D_13,   F_13}, // F11
     {0, E_14,   D_14,   F_14}, // F12
-    {0, E_15,   D_15,   F_15}, // ANY
+    {0, E_15,   D_15,   F_15}, // PSCR
     {0, E_16,   D_16,   F_16}, // Rotary
 
     {0, H_2,    G_2,    I_2}, // ~
@@ -71,7 +71,7 @@ const is31_led g_is31_leds[DRIVER_LED_TOTAL] = {
     {0, H_13,   G_13,   I_13}, // -
     {0, H_14,   G_14,   I_14}, // +
     {0, H_15,   G_15,   I_15}, // BKSP
-    {0, H_16,   G_16,   I_16}, // PgUp
+    {0, H_16,   G_16,   I_16}, // Del
     {0, K_2,    J_2,    L_2}, // TAB
     {0, K_3,    J_3,    L_3}, // Q
     {0, K_4,    J_4,    L_4}, // W
@@ -86,7 +86,7 @@ const is31_led g_is31_leds[DRIVER_LED_TOTAL] = {
     {0, K_13,   J_13,   L_13}, // [
     {0, K_14,   J_14,   L_14}, // ]
     {0, K_15,   J_15,   L_15}, // |
-    {0, K_16,   J_16,   L_16}, // PgDn
+    {0, K_16,   J_16,   L_16}, // PgUp
 
     {1, B_2,    A_2,    C_2}, // CAPS
     {1, B_3,    A_3,    C_3}, // A
@@ -126,7 +126,7 @@ const is31_led g_is31_leds[DRIVER_LED_TOTAL] = {
     {1, H_12,   G_12,   I_12}, // ?
     {1, H_13,   G_13,   I_13}, // R_SHIFT
     {1, H_14,   G_14,   I_14}, // UP
-    {1, H_15,   G_15,   I_15}, // END
+    {1, H_15,   G_15,   I_15}, // PgDn
 
     /* Underglow / Border */
     {0, B_1,    A_1,    C_1}, // S1
@@ -179,13 +179,13 @@ const is31_led g_is31_leds[DRIVER_LED_TOTAL] = {
 
 led_config_t g_led_config = { {
   /* Key Matrix to LED Index */
-  // ESC, F1~F12, Home, ANY, Rotary
+  // ESC, F1~F12, Home, PSCR, Rotary
   {  0,  1,  2,  3,  4,  5,  6,  7,  8,  9,  10,  11,  12,  13,  14 },
-  // ~, 1~0, _, +, BKSP, PgUp
+  // ~, 1~0, _, +, BKSP, DEL
   {  15,  16,  17,  18,  19,  20,  21,  22,  23,  24,  25,  26,  27,  28,  29 },
-  // TAB, Q, W, E,...[, ], |, PgDn
+  // TAB, Q, W, E,...[, ], |, PgUp
   {  30,  31,  32,  33,  34,  35,  36,  37,  38,  39,  40,  41,  42,  43,  44 },
-  // CAPS, A, S, D, ..., ENTER, END
+  // CAPS, A, S, D, ..., ENTER, PgDn
   {  45,  46,  47,  48,  49,  50,  51,  52,  53,  54,  55,  56,  57, NO_LED, 58 },
   // L_SHIFT, Z, X, C, V..., R_SHIFT, UP
   {  59,  60,  61,  62,  63,  64,  65,  66,  67,  68, 69, 70, NO_LED, 71, NO_LED },
