@@ -36,13 +36,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_COL_PINS { C15, C14, C13, C12, C11, C10, C9, C8, C7, C6, C5, C4, C3, C2, C1}
 
 /* Rotary Encoder */
-#define ENCODERS_PAD_A { A5 }
-#define ENCODERS_PAD_B { A6 }
+#define ENCODERS_PAD_A { B5 }
+#define ENCODERS_PAD_B { B4 }
 
 #define UNUSED_PINS
 
 /* COL2ROW, ROW2COL */
-#define DIODE_DIRECTION ROW2COL
+#define DIODE_DIRECTION COL2ROW
 
 /* the delay in microseconds when between changing matrix pin state and reading values */
 //#define MATRIX_IO_DELAY 30
@@ -161,7 +161,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* LED driver config */
 #define DRIVER_ADDR_1 0b1010000
-#define DRIVER_ADDR_2 0b1010011
+#define DRIVER_ADDR_2 0b1011111
 
 #define DRIVER_COUNT 2
 #define DRIVER_1_LED_TOTAL 64

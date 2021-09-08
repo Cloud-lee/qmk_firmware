@@ -35,7 +35,7 @@ AUTO_SHIFT_ENABLE = no      # Auto Shift
 #  SRC += cool_rgb_stuff.c
 #endif
 
-QUANTUM_LIB_SRC += i2c_master.c
+#QUANTUM_LIB_SRC += i2c_master.c
 #SRC += i2c_master.c
 
 # LED driver

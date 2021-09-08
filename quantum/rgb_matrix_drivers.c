@@ -41,7 +41,10 @@ static void init(void) {
     IS31FL3731_init(DRIVER_ADDR_4);
 #        endif
 #    elif defined(IS31FL3733)
-    IS31FL3733_init(DRIVER_ADDR_1, 0);
+    IS31FL3733_init(DRIVER_ADDR_1, 0); 
+    #if defined(DRIVER_ADDR_2) && (DRIVER_ADDR_2 != DRIVER_ADDR_1)
+    IS31FL3733_init(DRIVER_ADDR_2, 0);  //fix only support one driver issue
+    #endif
 #    elif defined(IS31FL3737)
     IS31FL3737_init(DRIVER_ADDR_1);
 #    else
