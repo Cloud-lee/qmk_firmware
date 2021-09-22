@@ -158,7 +158,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define BH1750_ADDRESS  (0xB8 << 0)    //depend on ADDR(AD0) > 0.7*VCC
 #endif
 
-
 /* LED driver config */
 #define DRIVER_ADDR_1 0b1010000
 #define DRIVER_ADDR_2 0b1011111

@@ -82,8 +82,16 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 void matrix_init_user(void) {
     //debug_enable = true; // for dprintf() enable or not
     rgblight_enable();
-    rgblight_mode(RGB_MATRIX_BREATHING);
+    //rgblight_mode(RGB_MATRIX_BREATHING);
+    rgblight_mode(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+
     rgblight_sethsv(255,0,255);
+    //rgblight_setrgb(0, 16, 0); //green
+#if 0
+    for (uint8_t i = 0; i < 127; i++) {
+        rgb_matrix_set_color(i, 0, 16, 0);
+    }
+#endif
     rgblight_set_speed(50);
     //rgblight_mode(6);
     //eeconfig_disable();

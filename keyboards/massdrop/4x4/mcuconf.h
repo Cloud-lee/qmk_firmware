@@ -25,3 +25,8 @@
 
 #undef STM32_I2C_USE_I2C1
 #define STM32_I2C_USE_I2C1 TRUE
+
+#undef STM32_MCOSEL
+//#define STM32_MCOSEL STM32_MCOSEL_SYSCLK  // output SYSTEM clock on MCO pin (PA8), too fast to measure
+//#define STM32_MCOSEL STM32_MCOSEL_LSI  // output LSI on MCO pin (PA8), 40 kHz
+#define STM32_MCOSEL STM32_MCOSEL_HSE  // output HSE on MCO pin (PA8)
