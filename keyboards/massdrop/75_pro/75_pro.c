@@ -36,7 +36,6 @@ void matrix_scan_kb(void) {
 
 #ifdef RGB_MATRIX_ENABLE
 
-
 const is31_led g_is31_leds[DRIVER_LED_TOTAL] = {
 /* Refer to IS31 manual for these locations
  *   driver
@@ -133,6 +132,7 @@ const is31_led g_is31_leds[DRIVER_LED_TOTAL] = {
     {1, H_11,   G_11,   I_11}, // RIGHT
 
     /* Underglow / Border */
+    {0, B_1,    A_1,    C_1}, // SD1
     {0, B_2,    A_2,    C_2}, // SD2
     {0, B_3,    A_3,    C_3}, // SD3
     {0, B_4,    A_4,    C_4}, // SD4
@@ -149,8 +149,6 @@ const is31_led g_is31_leds[DRIVER_LED_TOTAL] = {
     {0, B_15,   A_15,   C_15}, // SD15
     {0, B_16,   A_16,   C_16}, // SD16
     {1, B_12,   A_12,   C_12}, // SD17
-
-    {0, B_1,    A_1,    C_1}, // SD1
     {1, B_13,   A_13,   C_13}, // SD18
 
     {0, E_1,    D_1,    F_1}, // SD46
@@ -169,7 +167,6 @@ const is31_led g_is31_leds[DRIVER_LED_TOTAL] = {
     {1, E_16,   D_16,   F_16}, // SD23
 
     {1, H_1,    G_1,    I_1}, // SD41
-    {1, H_16,   G_16,   I_16}, // SD24
     {1, K_1,    J_1,    L_1}, // SD40
     {1, K_2,    J_2,    L_2}, // SD39
     {1, K_3,    J_3,    L_3}, // SD38
@@ -186,6 +183,7 @@ const is31_led g_is31_leds[DRIVER_LED_TOTAL] = {
     {1, K_14,   J_14,   L_14}, // SD27
     {1, K_15,   J_15,   L_15}, // SD26
     {1, K_16,   J_16,   L_16}, // SD25
+    {1, H_16,   G_16,   I_16}, // SD24
 };
 
 led_config_t g_led_config = { {
@@ -213,13 +211,12 @@ led_config_t g_led_config = { {
   {3, 63}, {18, 63}, {38, 63}, {90, 63}, {140, 63}, {154, 63}, {169, 63}, {192, 63}, {206, 63}, {221, 63},
   /* Underglow / Border */
   {0, 0}, {8, 0}, {16, 0}, {31, 0}, {46, 0}, {62, 0}, {77, 0}, {93, 0}, {108, 0}, {124, 0}, {139, 0}, {155, 0}, {171, 0}, {187, 0}, {203, 0}, {210, 0}, {218, 0}, {224, 0},
-  {0, 10}, {224, 10},
-  {0, 21}, {224, 21},
-  {0, 31}, {224, 31},
-  {0, 42}, {224, 42},
-  {0, 52}, {224, 52},
-  {0, 64}, {224, 64},
-  {8, 64}, {16, 64}, {31, 64}, {46, 64}, {62, 64}, {77, 64}, {93, 64}, {108, 64}, {124, 64}, {139, 64}, {155, 64}, {171, 64}, {187, 64}, {203, 64}, {210, 64}, {218, 64},
+  {0, 18}, {224, 18},
+  {0, 27}, {224, 27},
+  {0, 36}, {224, 36},
+  {0, 45}, {224, 45},
+  {0, 54}, {224, 54},
+  {0, 64}, {8, 64}, {16, 64}, {31, 64}, {46, 64}, {62, 64}, {77, 64}, {93, 64}, {108, 64}, {124, 64}, {139, 64}, {155, 64}, {171, 64}, {187, 64}, {203, 64}, {210, 64}, {218, 64}, {224, 64}
 
 }, {
   /* LED Index to Flag */
@@ -253,6 +250,25 @@ void suspend_wakeup_init_kb(void) {
     suspend_wakeup_init_user();
 }
 
+#if 0
+#ifdef ENCODER_ENABLE
+bool encoder_update_kb(uint8_t index, bool clockwise) {
+    //if (!encoder_update_user(index, clockwise)) { return false; }
+    switch (index) {
+        case 0:
+            if (clockwise) {
+                //tap_code(KC_VOLU);
+                tap_code_delay(KC_VOLU, 10);
+            } else {
+                //tap_code(KC_VOLD);
+                tap_code_delay(KC_VOLD, 10);
+            }
+        break;
+    }
+    return true;
+}
+#endif
+#endif
 
 #if 0
 void rgb_matrix_indicators_kb(void) {
@@ -265,7 +281,7 @@ void rgb_matrix_indicators_kb(void) {
 }
 #endif
 
-#if 1
+#if 0
 void i2c_init(void) {
     __attribute__ ((unused)) int ret;
     /* Try releasing special pins for a short time */
@@ -305,5 +321,18 @@ void bh1750_read_data(void){
         dprintf("data[0]= 0x%x\n", data[0]);
         dprintf("data[1]= 0x%x\n", data[1]);
     }
+}
+#endif
+
+#if 0
+void eeconfig_init_kb(void) {
+#ifdef RGB_MATRIX_ENABLE
+    rgblight_sethsv(255,0,255); // white & brightness MAX
+    rgblight_set_speed(50);
+    rgblight_mode(RGB_MATRIX_BREATHING);  // for factory test whole KB LED
+#endif
+
+    eeconfig_update_kb(0);
+    eeconfig_init_user();
 }
 #endif
