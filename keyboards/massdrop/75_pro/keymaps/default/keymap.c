@@ -90,10 +90,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return true;
 
         case RGB_MOD:
-            dprintf("mode = %d\n", rgb_matrix_get_mode());
-            dprintf("hue = %d\n", rgb_matrix_get_hue());
-            dprintf("sat = %d\n", rgb_matrix_get_sat());
-            dprintf("val = %d\n", rgb_matrix_get_val());
+            //dprintf("mode = %d\n", rgb_matrix_get_mode());
+            //dprintf("hue = %d\n", rgb_matrix_get_hue());
+            //dprintf("sat = %d\n", rgb_matrix_get_sat());
+            //dprintf("val = %d\n", rgb_matrix_get_val());
             return true;
     }
 #ifdef CONSOLE_ENABLE

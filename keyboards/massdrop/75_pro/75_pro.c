@@ -241,12 +241,16 @@ led_config_t g_led_config = { {
 
 void suspend_power_down_kb(void) {
     //rgb_matrix_set_color_all(0, 0, 0);
+#ifdef RGB_MATRIX_ENABLE
     rgb_matrix_set_suspend_state(true);
+#endif
     suspend_power_down_user();
 }
 
 void suspend_wakeup_init_kb(void) {
+#ifdef RGB_MATRIX_ENABLE
     rgb_matrix_set_suspend_state(false);
+#endif
     suspend_wakeup_init_user();
 }
 

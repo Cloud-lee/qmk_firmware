@@ -38,6 +38,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Rotary Encoder */
 #define ENCODERS_PAD_A { B5 }
 #define ENCODERS_PAD_B { B4 }
+#define ENCODER_RESOLUTION 2
 
 #define UNUSED_PINS
 
